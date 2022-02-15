@@ -34,10 +34,40 @@ function moveZeroes(&$nums) {
             $runner++;
             $head++;
         }
-        print_r($nums);
+    }
+}
+
+function moveZeroes2(&$nums) {
+    $tail = 0;
+    for ($head = 0; $head < count($nums); $head++) {
+        while ($nums[$tail] !== 0) {
+            $tail++;
+            if (!($tail < count($nums)))
+                return;
+        }
+        while ($nums[$head] === 0) {
+            $head++;
+            if (!($head < count($nums)))
+                return;
+        }
+        $nums[$tail] = $nums[$head];
+        $nums[$head] = 0;
     }
 }
 $nums = [0, 1, 0, 3, 12];
 $nums = [1, 0, 0, 1];
-
-moveZeroes($nums);
+$nums = [0];
+$nums = [1];
+$nums = [1, 0];
+// $testNums = [
+//     [0, 1, 0, 3, 12],
+//     [1, 0, 0, 1],
+//     [0],
+//     [1],
+//     [1, 0]
+// ];
+// foreach ($testNums as $key=>$nums) {
+// echo "Test Case: $key\n";
+moveZeroes2($nums);
+print_r($nums);
+// }

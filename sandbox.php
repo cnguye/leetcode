@@ -1,17 +1,7 @@
 <?php
 
-$a = "hello a";
-$b = "hello b";
+date_default_timezone_set('America/New_York');
 
-function aa(){
-    global $a, $b;
-    echo "$a\n"; // outputs hello a
-    $a = "bye a";
-    $b = "bye b";
-}
-
-echo "$a\n";
-echo "$b\n";
-aa();
-echo "$a\n";
-echo "$b\n";
+$currentTime = time() - 28800;
+$currentTime = date('D - M - Y H:i:s');
+print_r($currentTime);

@@ -48,13 +48,27 @@ function removeDuplicatesSlow(&$nums) {
 function removeDuplicates(&$nums) {
     foreach($nums as $key=>$num){
         if(isset($nums[$key + 1]) && $nums[$key + 1] == $num)
-            unset($nums[$key]);
+        unset($nums[$key]);
     }
 }
 
+function removeDuplicatesRevisited(&$nums) {
+    $k = $tail = 0;
+    for($runner = 1; $runner < count($nums) - 1; $runner++){
+        $k++;
+        while($nums[$tail] === $nums[$runner]){
+            $runner++;
+            if($runner > (count($nums) - 1)) break 2;
+        }
+        $tail++;
+        $nums[$tail] = $nums[$runner];
+    }
+    return $k;
+}
 
-$nums = [1, 1, 2, 3, 3, 3];
-$nums = [1,2];
+$nums = [1, 1, 2];
 $nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-removeDuplicates($nums);
+$nums = [1, 2];
+$nums = [1, 1, 2, 3, 3, 3];
+print_r(removeDuplicatesRevisited($nums));
 print_r($nums);

@@ -68,13 +68,13 @@ function getMaxSubArray($nums, $start, $end) {
 }
 
 
-$nums = [-2, -1]; // expects -1
 $nums = [0]; // expects 0
-$nums = [-1, -2]; // expects -1
-$nums = [-1, 2, 1];
-$nums = [-2, 1, -3, 4, -1, 2, 1]; // expected: 6
-$nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]; // expected: 6
-$nums = [8, -19, 5, -4, 20]; // expected 21
 $nums = [-2, 1, 3, 4, -11, 4, 7, -1, 2, 1, -5, 4]; // expected: 13
+$nums = [8, -19, 5, -4, 20]; // expected 21
+$nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]; // expected: 6
+$nums = [-2, 1, -3, 4, -1, 2, 1]; // expected: 6
+$nums = [-1, 2, 1];
+$nums = [-1, -2]; // expects -1
+$nums = [-2, -1]; // expects -1
 
-var_dump(maxSubArray($nums));
+var_dump(maxSubArrayN($nums));
