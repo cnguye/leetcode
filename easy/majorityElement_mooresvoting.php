@@ -51,10 +51,29 @@ function majorityElement($nums) {
             }
         }
     }
-    echo $numIndex . "\n";
     return $nums[$numIndex];
 }
 
+function majorityElementRevisited($nums) {
+    $curr_num = array_shift($nums);
+    $num_count = 1;
+    foreach($nums as $num){
+        if($num !== $curr_num){
+            if($num_count === 0) {
+                $curr_num = $num;
+                $num_count = 1;
+            }
+            else {
+                $num_count--;
+            }
+        }
+        else {
+            $num_count++;
+        }
+    }
+    return $curr_num;
+}
+
 $nums = [2,2,1,1,1,2,2];
-print_r(majorityElement($nums));
+print_r(majorityElementRevisited($nums));
 echo "\n";
